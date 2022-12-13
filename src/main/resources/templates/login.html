@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/plugins/fontawesome-free/css/all.min.css}"
+          type="text/css">
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css}"
+          type="text/css">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/dist/css/adminlte.min.css}" type="text/css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"
+          type="text/css">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="#"><b>Login</b> do sistema</a>
+    </div>
+    <!--    final da logo-->
+    <div class="card-body login-card-body">
+        <p class="login-box-msg" th:if="${param.error}">
+            Usuário ou senha invalidos
+        </p>
+        <p class="login-box-msg" th:if="${param.logout}">
+            Você deslogou do sistema.
+        </p>
+        <p class="login-box-msg"> Faça login para Iniciar a sessão</p>
+
+        <!--        form de login-->
+        <form method="post" th:action="@{~/login}">
+            <!--            input do user-->
+            <div class="input-group mb-3">
+                <input class="form-control" name="username" placeholder="Digite seu usuário" type="text">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
+                    </div>
+                </div>
+            </div>
+            <!--            fim do input user-->
+            <!--            input da senha-->
+            <div class="input-group mb-3">
+                <input class="form-control" name="password" placeholder="Digite sua senha" type="password">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-user-clock"></span>
+                    </div>
+                </div>
+            </div>
+            <!--            fim do imput da senha-->
+            <!--            start remember me-->
+            <div class="row">
+                <div class="col-8">
+                    <div class="icheck-primary">
+                        <input id="remember" type="checkbox">
+                        <label for="remember">
+                            Lembrar-se de mim
+                        </label>
+                    </div>
+                </div>
+                <!--                col-->
+                <div class="col-4">
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Logar-se
+                    </button>
+                    <!--                    fim da col-->
+                </div>
+            </div>
+        </form>
+        <p class="mb-1">
+            <a href="/forgotpassword"> Esqueci minha senha</a>
+        </p>
+        <p class="mb-0">
+            <a class="text-center" href="/register">Cadastre-se</a>
+        </p>
+    </div>
+</div>
+<!--fim da div do login-->
+<!-- Jquery-->
+<script th:src="@{~/webjars/AdminLTE/3.2.0/plugins/jquery/jquery.min.js}" type="text/javascript"></script>
+<!--bootstrap4-->
+<script th:src="@{~/webjars/AdminLTE/3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js}" type="text/javascript"></script>
+<!--Admin Lte-->
+<script th:src="@{~/webjars/AdminLTE/3.2.0/dist/js/adminlte.min.js}" type="text/javascript"></script>
+</body>
+</html>
